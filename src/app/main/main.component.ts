@@ -84,20 +84,17 @@ export class MainComponent implements OnInit {
                 city_key: city.Key
               }
               this.store.dispatch(updateCity(obj));
-              this.getCurrentCity();
+              this.getCurrentCityFromStore();
               this.MatSnackBar.open(`Default city by your location`, "", { duration: 2000, verticalPosition: "bottom" });
             }
             );
           })
         } catch (err) {
-          this.getCurrentCity();
+          this.getCurrentCityFromStore();
           this.MatSnackBar.open(`Failed to get your city by location`, "", { duration: 2000, verticalPosition: "bottom" });
         }
       }
-
     })
-
-
 
     // Subscribe to changes in the autocomplete input value
     this.myControl.valueChanges.subscribe((value) => {
@@ -105,7 +102,7 @@ export class MainComponent implements OnInit {
     })
   }
 
-  getCurrentCity() {
+  getCurrentCityFromStore() {
     this.store.select('currentCity').subscribe((data) => {
       this.city = data.name;
       this.cityName = data.name
