@@ -88,6 +88,9 @@ export class MainComponent implements OnInit {
               this.MatSnackBar.open(`Default city by your location`, "", { duration: 2000, verticalPosition: "bottom" });
             }
             );
+          }, (error) => {
+            this.getCurrentCityFromStore();
+            this.MatSnackBar.open(`Failed to use your current location`, "", { duration: 2000, verticalPosition: "bottom" });
           })
         } catch (err) {
           this.getCurrentCityFromStore();
@@ -164,7 +167,6 @@ export class MainComponent implements OnInit {
   // Get current weather details for the specified city
   getCurrentWeather(cityKey: string) {
     this.httpService.getCurrentWeather(cityKey).subscribe((data: any) => {
-      (data);
       this.currentWeather.temp.C = data[0].Temperature.Metric.Value;
       this.currentWeather.temp.F = data[0].Temperature.Imperial.Value;
       this.currentWeather.condition = data[0].WeatherText;
