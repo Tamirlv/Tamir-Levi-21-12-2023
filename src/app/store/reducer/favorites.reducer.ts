@@ -26,7 +26,6 @@ export const initialState: Favorite[] =
 export const favoritesReducer = createReducer(
     initialState,
     on(addToFavorites, (state, action) => {
-        console.log(state);
         const newItem: Favorite = {
             id: action.id,
             name: action.name,

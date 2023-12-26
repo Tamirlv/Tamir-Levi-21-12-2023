@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -28,6 +27,7 @@ export class MainComponent implements OnInit {
   AutoCompleteCities: any = []; // Array to store autocomplete city suggestions
   selectedCity: any; // Selected city details
   city: string = 'Tel Aviv'; // Default city name
+  cityName: string; // Default city name
   casts: any = []; // Array to store forecast data for the next 5 days
   dates: any = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; // Days of the week (ENUM)
   id: any; // City ID
@@ -108,6 +108,7 @@ export class MainComponent implements OnInit {
   getCurrentCity() {
     this.store.select('currentCity').subscribe((data) => {
       this.city = data.name;
+      this.cityName = data.name
       this.id = data.city_key
       this.getCurrentWeather(data.city_key);
       this.get5DaysForecasts(data.city_key);
@@ -121,7 +122,7 @@ export class MainComponent implements OnInit {
   // Auto-complete functionality based on user input
   autoComplete(value: any) {
     this.AutoCompleteCities = [];
-    if (value.length > 2) {
+    if (value?.length > 2) {
       this.autoCompleteApi(value).subscribe((cities: any) => {
         this.AutoCompleteCities = cities;
       });
@@ -130,7 +131,6 @@ export class MainComponent implements OnInit {
 
   // Add the current city to the list of favorite cities
   addToFavorites() {
-    console.log(this.city);
     let obj = {
       id: this.favoriteCities.length + 1,
       name: this.city,
@@ -167,7 +167,7 @@ export class MainComponent implements OnInit {
   // Get current weather details for the specified city
   getCurrentWeather(cityKey: string) {
     this.httpService.getCurrentWeather(cityKey).subscribe((data: any) => {
-      console.log(data);
+      (data);
       this.currentWeather.temp.C = data[0].Temperature.Metric.Value;
       this.currentWeather.temp.F = data[0].Temperature.Imperial.Value;
       this.currentWeather.condition = data[0].WeatherText;
@@ -178,7 +178,7 @@ export class MainComponent implements OnInit {
   get5DaysForecasts(cityKey: string) {
     this.casts = [];
     this.httpService.get5DaysForecasts(cityKey).subscribe((data: any) => {
-      console.log(data);
+      (data);
       data.DailyForecasts.forEach((element: any) => {
         let date = new Date(element.Date);
         let day = this.dates[date.getUTCDay()];
@@ -201,6 +201,7 @@ export class MainComponent implements OnInit {
   // Handle the selection of an item from the autocomplete list
   onSelect(event: MatAutocompleteSelectedEvent) {
     this.city = event.option.value.LocalizedName;
+    this.cityName = event.option.value.LocalizedName;
     const id = event.option.value.Key;
     this.id = id;
     this.getCurrentWeather(id);

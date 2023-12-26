@@ -50,6 +50,7 @@ input {
 .weather-card-dark {
     background-color: #333;
     color: #fff;
+    border: solid white;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -101,5 +102,14 @@ input {
 @media (max-width: 600px) {
     .search-bar {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .col-lg-2,
+    .col-md-4 {
+        width: 50%;
+        /* Adjust as needed */
     }
 }

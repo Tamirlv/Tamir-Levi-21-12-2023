@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { addToFavorites } from '../store/actions/favorites.actions';
 import { Favorite } from '../store/reducer/favorites.reducer';
 import { Router } from '@angular/router';
 import { updateCity } from '../store/actions/current-city.actions';
