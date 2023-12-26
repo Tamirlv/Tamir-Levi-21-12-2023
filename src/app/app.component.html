@@ -1,0 +1,49 @@
+<div class="h-100" style="overflow-y: hidden; overflow-x: hidden;">
+  <mat-toolbar class="shadow bg-warning bg-gradient">
+    <mat-toolbar-row>
+      <div style="width: 70px;" class="text-start">
+        <button mat-icon-button (click)="drawer.toggle();">
+          <mat-icon routerLinkActive="active-icon">menu</mat-icon>
+        </button>
+      </div>
+      <span class="toolbar-spacer"></span>
+      <a class="navbar-brand me-0 px-3" (click)="router.navigate(['/main-dash'])"> Weather Application </a>
+      <span class="toolbar-spacer"></span>
+      <button mat-icon-button (click)="updateTemp()" style="margin-bottom: 8px;" class="temperature-toggle-button">
+        <mat-icon>{{ temperatureIcon }}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="updateBackground()">
+        <mat-icon>{{ isDarkTheme ? 'nights_stay': 'wb_sunny' }}</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container bg-white">
+    <mat-sidenav #drawer class="sidenav bg-light bg-gradient border-end ps-2" [opened]="isMenuOpen">
+      <mat-nav-list class="list-unstyled ps-0 p-3">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button [routerLink]="['/main']" class="btn btn-toggle notlist align-items-center rounded"
+              routerLinkActive="btn-active-green" (click)="drawer.toggle()">
+              <mat-icon class="mx-2 material-icons-outlined">home</mat-icon>
+              Main
+            </button>
+          </li>
+          <li class="mb-1">
+            <button [routerLink]="['/favorites']" class="btn btn-toggle notlist align-items-center rounded"
+              routerLinkActive="btn-active-green" (click)="drawer.toggle()">
+              <mat-icon class="mx-2 material-icons-outlined">home</mat-icon>
+              Favorites
+            </button>
+          </li>
+        </ul>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <main class="p-3">
+      <div [ngClass]="{'dark-theme': isDarkTheme, 'light-theme': !isDarkTheme}">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </mat-sidenav-container>
+</div>

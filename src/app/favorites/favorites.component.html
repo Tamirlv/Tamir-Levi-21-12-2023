@@ -1,0 +1,25 @@
+<body @fadeInOut [ngClass]="{'body-dark': isDarkTheme, 'body-light': !isDarkTheme}">
+    <h1>Favorites</h1>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let city of favoriteCitiesWeather">
+                    <div [ngClass]="{'city-card-dark': isDarkTheme, 'city-card-light': !isDarkTheme}"
+                        (click)="favoriteSelected(city)">
+                        <h4 [ngClass]="{'card-title-dark': isDarkTheme, 'card-title-light': !isDarkTheme}">{{city.name}}
+                        </h4>
+                        <p *ngIf="celsius"
+                            [ngClass]="{'current-weather-dark': isDarkTheme, 'current-weather-light': !isDarkTheme}">
+                            {{city.currWeather.C}}°C</p>
+                        <p *ngIf="!celsius"
+                            [ngClass]="{'current-weather-dark': isDarkTheme, 'current-weather-light': !isDarkTheme}">
+                            {{city.currWeather.F}}°F</p>
+                        <p
+                            [ngClass]="{'weather-description-dark': isDarkTheme, 'weather-description-light': !isDarkTheme}">
+                            {{city.currTextWeather}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

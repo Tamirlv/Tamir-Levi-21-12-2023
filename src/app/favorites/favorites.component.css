@@ -1,0 +1,136 @@
+.body-light {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    /* Soft background color for the entire page */
+}
+
+.body-dark {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    /* Soft background color for the entire page */
+}
+
+
+.card-text {
+    margin-bottom: 0.75rem;
+    /* Set the bottom margin for spacing between card text elements */
+}
+
+.container {
+    margin-top: 20px;
+    /* Add some space at the top of the container */
+}
+
+.city-card-light {
+    width: 200px;
+    height: 250px;
+    background-color: #ffffff;
+    /* White background for the city cards */
+    border: 1px solid #ced4da;
+    /* Slightly darker border color */
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.city-card-dark {
+    width: 200px;
+    height: 250px;
+    background-color: #463a3a;
+    /* White background for the city cards */
+    border: 1px solid #e1e7ee;
+    /* Slightly darker border color */
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+h4.card-title-light {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+h4.card-title-dark {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.current-weather-light {
+    font-size: 22px;
+    text-align: center;
+}
+
+.current-weather-dark {
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+}
+
+.weather-description-light {
+    font-size: 22px;
+    text-align: center;
+    color: #6c757d;
+    /* Gray text color */
+}
+
+.weather-description-dark {
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    /* Gray text color */
+}
+
+.city-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    /* Add a slightly larger box shadow on hover */
+}
+
+h1 {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    margin: 20px;
+}
+
+.favorites-list {
+    list-style: none;
+    padding: 0;
+}
+
+.favorite-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location-id,
+.location-name,
+.current-weather {
+    flex: 1;
+    margin: 0;
+}
+
+/* Add more styling as needed */
