@@ -32,14 +32,10 @@ export const favoritesReducer = createReducer(
             city_key: action.city_key
         };
 
-        console.log('Item added to favorites:', newItem);
-
         return [...state, newItem]; // Return a new array with the existing items and the new item
     }),
     on(removeFromFavorites, (state, action) => {
         const cityNameToRemove = action.name; // Assuming you have cityName in your action
-
-        console.log('Removing city from favorites:', cityNameToRemove);
 
         // Use filter to create a new array without the item to remove
         const newState = state.filter(item => item.name !== cityNameToRemove);
