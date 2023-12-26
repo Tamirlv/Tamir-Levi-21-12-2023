@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
   AutoCompleteCities: any = []; // Array to store autocomplete city suggestions
   selectedCity: any; // Selected city details
   city: string = 'Tel Aviv'; // Default city name
-  cityName: string; // Default city name
+  cityName: string; // Default city name for input
   casts: any = []; // Array to store forecast data for the next 5 days
   dates: any = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; // Days of the week (ENUM)
   id: any; // City ID
